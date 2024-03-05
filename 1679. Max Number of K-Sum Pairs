@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int maxOperations(vector<int>& a, int k) { 
+        int l=0,r=a.size()-1,ans=0;
+        ranges::sort(a);
+        while(l<r) {
+            int x=a[l]+a[r];
+            if(x==k) {
+                ans++;
+                l++;r--;
+            }else if(x<k) l++;
+            else r--;
+        }
+        return ans;
+    }
+};
+auto init = []() 
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    return 'c';
+}();
